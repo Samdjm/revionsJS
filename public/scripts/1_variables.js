@@ -54,10 +54,28 @@ console.log(rest);
 
 //Arrondir un nombre
 console.log(Math.floor(25 / 7));
-
+console.log(Math.trunc(25 / 7));
 //Avoir un nombre aléatoire entre 0 et 100
 console.log(Math.floor(Math.random() * 101));
 
 //Avoir un nombre aléatoire entre 50 et 125
 //Logique Math.floor(Math.random() * (max - min + 1)) + min
-document.write(Math.floor(Math.random() * (125 - 50 + 1)) + 50);
+document.write(Math.floor(Math.random() * (125 - 100 + 1)) + 100);
+
+console.log(1 + "1");
+console.log("1" + 1);
+console.log("Le resultat = " + (25 + 10));
+const a = 10;
+const b = 20;
+console.log(`Le resultat ${a + b}`);
+
+//Exercice:
+//Déclarer 3 variables: nom:string, prenom:string, age:number
+//Afficher: Bonjour, (nom) (prenom). Vous avez (age)ans. Dans un an votre age sera: (age + 1)
+const nom = "Djemai";
+const prenom = "Samy";
+const age = 28;
+
+console.log(
+  `Bonjour, ${nom} ${prenom}. Vous avez ${age}ans. Dans un an votre age sera: ${age + 1}`
+);
