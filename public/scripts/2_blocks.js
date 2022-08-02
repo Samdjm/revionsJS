@@ -53,12 +53,60 @@ let num1 = 1,
   num2 = 2,
   num3 = 2;
 
+// if (num1 === num2 && num1 === num3) {
+//   console.log("Tous les nombres sont identiques.");
+// } else {
+//   if (num1 === num2 || num1 === num3 || num2 === num3) {
+//     console.log("2 des nombres sont identique.");
+//   } else {
+//     console.log("les nombres ne sont pas identiques.");
+//   }
+// }
+
 if (num1 === num2 && num1 === num3) {
   console.log("Tous les nombres sont identiques.");
+} else if (num1 === num2 || num1 === num3 || num2 === num3) {
+  console.log("2 des nombres sont identique.");
 } else {
-  if (num1 === num2 || num1 === num3 || num2 === num3) {
-    console.log("2 des nombres sont identique.");
-  } else {
-    console.log("les nombres ne sont pas identiques.");
-  }
+  console.log("les nombres ne sont pas identiques.");
 }
+
+const isAllEquals = num1 === num2 && num1 === num3;
+const isTwoEquals = num1 === num2 || num1 === num3 || num2 === num3;
+
+console.log(
+  isAllEquals
+    ? "Tous les nombres sont identiques."
+    : isTwoEquals
+    ? "2 des nombres sont identique."
+    : "les nombres ne sont pas identiques."
+);
+//Les boucles.
+//Boucle For:
+for (var i = 0; i <= 10; ++i) {
+  console.log(`Number ${i}`);
+}
+console.log(i);
+
+let j = 0;
+
+function isInfDix(number) {
+  return number <= 10;
+}
+
+while (isInfDix(j)) {
+  console.log(`Number j = ${++j}`);
+}
+
+do {
+  console.log(`Do While Number j = ${j++}`);
+} while (isInfDix(j));
+
+let inputNumber = null;
+do {
+  inputNumber = prompt("Entrez un nombre");
+} while (isNaN(inputNumber));
+
+// while (isNaN(inputNumber)) {
+//   inputNumber = prompt("Entrez un nombre");
+// }
