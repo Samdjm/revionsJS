@@ -79,3 +79,56 @@ const age = 28;
 console.log(
   `Bonjour, ${nom} ${prenom}. Vous avez ${age}ans. Dans un an votre age sera: ${age + 1}`
 );
+
+//Type boolean:
+const vrai = true;
+const faux = false;
+
+//Operateur logique ET - &&:
+//true && true = true
+//true && false = false
+//false && true = false
+//false && false = false
+
+//Operateur logique OU - ||:
+//true || true = true
+//true || false = true
+//false || true = true
+//false || false = false
+
+//Operateur logique XOR - (true && false) || (false && true):
+//true xor true = false
+//true xor false = true
+//false xor true = true
+//false xor false = false
+
+const rien = null;
+console.log(rien);
+
+const indefini = undefined;
+console.log(indefini);
+
+//Les tableau - arrays:
+let testList = ["Sam", rien, indefini, vrai, age, "Djemai"];
+console.log(testList);
+console.log("element postion 0: ", testList[0]);
+console.log("element postion 4: ", testList[4]);
+console.log("Dernier element:", testList[testList.length - 1]);
+
+let prisList = [20, 22, 50, 1, 36, 10, 45];
+
+let listFiltre = prisList
+  .filter(function (element, index) {
+    //Retourne un boolean: On garde l'éléement si true.
+    return element % 2 === 0;
+  })
+  .map(function (element, index) {
+    return element / 2;
+  });
+console.log("liste filtrée: ", listFiltre);
+
+listFiltre.forEach(function (element, index, list) {
+  console.log(list);
+  listFiltre[index] = `<p>${element}</p>`;
+});
+console.log(listFiltre);
