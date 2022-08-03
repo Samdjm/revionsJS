@@ -118,12 +118,13 @@ function getUsers(ids, callback) {
   ids.forEach((element, index) => {
     listUsers.push(usersDB[element]);
   });
-  callback(listUsers);
+  const test = callback(listUsers);
   return listUsers;
 }
 
 getUsers([0, 2], (listUsers) => {
   console.log(listUsers);
+  return "test";
 });
 
 const utilisateur = getUser(0, (user) => {
@@ -145,7 +146,6 @@ function writeTableau(tab) {
 writeTableau(tableMul(5));
 
 function createAndShowTab(tab, callback) {
-  console.log("tab", tab);
   tab.forEach((element, index) => {
     callback(element, index);
   });
@@ -161,14 +161,44 @@ createAndShowTab(["Djemai", "Samy"], (element, index) => {
   document.writeln(`<h2 style='color:red;'>l'element: ${element}</h2>`);
 });
 
-//Parenthese tests:
-function affiche(text) {
-  if (isNaN(text)) {
-    return `<p>${text}</p>`;
-  } else {
-    return `<span>${text}</span>`;
+//Exercice: Créer notre propre forEach:
+//Créer une fonction: pourChaque ( tab: any[], callback: (element, index) => void )
+//(On peut utiliser une boucle for)
+
+function pourChaque(tab, appelLaFonction) {
+  for (let i = 0; i < tab.length; i++) {
+    let index = i;
+    let element = tab[i];
+    appelLaFonction(element, index);
   }
 }
+
+//Utliser la fonction avec un tableau d'emails, et le callback affiche l'index et le valeur de l'element.
+const users = ["sam.djm93@gmail.com", "john@doe.com", "exemple@exemple.fr"];
+pourChaque(users, (element, index) => {
+  console.log(element);
+});
+
+let number = 10;
+
+function test(number) {
+  function test2(number) {
+    console.log(number);
+  }
+  test2(3);
+  console.log(number);
+}
+
+test(5);
+
+//Parenthese tests:
+// function affiche(text) {
+//   if (isNaN(text)) {
+//     return `<p>${text}</p>`;
+//   } else {
+//     return `<span>${text}</span>`;
+//   }
+// }
 
 // function testAffiche() {
 //   if (affiche("hello") === "<p>hello</p>") {
