@@ -226,12 +226,18 @@ function createUser(username, email) {
     return username.length < 10 && username !== "";
   }
 
-  function showErrorEmail() {
-    console.log("test", isEmailCorrect());
+  function showErrorEmail(callback) {
+    if (callback) {
+      callback(isEmailCorrect() ? "" : "Votre email n'est pas bon!");
+    }
     return isEmailCorrect() ? "" : "Votre email n'est pas bon!";
   }
-  function showUsernameError() {
-    return isUsernameCorrect() ? "" : "username doit etre inferieure a 10!";
+  function showUsernameError(callback) {
+    const error = isUsernameCorrect() ? "" : "username doit etre inferieure a 10!";
+    if (callback) {
+      callback(error);
+    }
+    return error;
   }
   function saveToDb() {
     return console.log("Requete vers backend envoyant email et username");
@@ -249,7 +255,7 @@ function createUser(username, email) {
     saveToDb,
   };
 }
-const user2 = createUser("exemple", "Exemple@exemple.com");
+const user2 = createUser("exempleqsdqsdqsdqsd", "Exempleexemple.com");
 
 // console.log(user2.getEmail());
 // user2.setEmail("laaaA@lalala");
@@ -259,6 +265,17 @@ const user2 = createUser("exemple", "Exemple@exemple.com");
 if (user2.isEmailCorrect() && user2.isUsernameCorrect()) {
   user2.saveToDb();
 } else {
-  console.log(user2.showErrorEmail());
+  user2.showErrorEmail((error) => {
+    document.writeln(error);
+  });
   console.log(user2.showUsernameError());
 }
+
+const number5 = (i) => i;
+console.log(number5(8));
+
+const a = () => {
+  return { name: "sam", age: "28" };
+};
+const b = () => ({ name: "sam", age: "28" });
+console.log(b());
