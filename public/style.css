@@ -33,17 +33,23 @@ a {
   #menu {
     flex-direction: column;
     position: absolute;
-    left: 0;
+    left: -100%;
     top: 50px;
     background-color: rgb(233, 233, 233);
     padding: 40px;
+    transition: all 0.5s ease-in-out;
   }
   svg {
     display: inline;
+    transition: all 0.2s ease-in-out;
+  }
+  svg:hover {
+    fill: rgb(107, 138, 231);
   }
   .navBar > div {
     padding: 0 25px;
     width: 100%;
     justify-content: space-between;
+    cursor: pointer;
   }
 }
