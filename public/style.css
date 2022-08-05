@@ -3,6 +3,9 @@
   list-style: none;
   color: royalblue;
 }
+main {
+  padding-top: 50px;
+}
 h1 {
   color: royalblue;
   background-color: rgb(235, 235, 235);
@@ -15,6 +18,8 @@ svg {
   display: flex;
   background-color: rgb(215, 215, 215);
   justify-content: space-around;
+  position: fixed;
+  width: 100%;
 }
 .navBar > div {
   display: flex;
