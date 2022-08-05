@@ -73,7 +73,7 @@ req.onreadystatechange = function () {
     //Afficher les posts sous forme d'accordion (append to main)
     const main = document.querySelector("main");
 
-    const postsElements = posts.map((post, index) => {
+    const postsElements = posts.map((post) => {
       const div = document.createElement("div");
       div.classList.add("accordion");
       div.innerHTML = `
@@ -86,9 +86,32 @@ req.onreadystatechange = function () {
       `;
       return div;
     });
-
+    console.log(postsElements);
     main.append(...postsElements);
+    // main.append(posts[0], posts[1], posts[2]);
   }
 };
 
 req.send();
+
+const names = ["Sam", "John"];
+
+const namesParagraph = names.map((name, index) => {
+  return `<p>${name}</p>`;
+});
+console.log(names);
+console.log(namesParagraph);
+
+function map(tab, callback) {
+  let newTab = [];
+  for (let i = 0; i < tab.length; i++) {
+    let changedElement = callback(tab[i], i);
+    newTab[i] = changedElement;
+  }
+  return newTab;
+}
+
+const changesNames = map(names, (element, index) => {
+  return `<p>${element}</p>`;
+});
+console.log(changesNames);
