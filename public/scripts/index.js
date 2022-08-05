@@ -26,3 +26,35 @@ document.querySelectorAll(".accordionButton").forEach((htmlElement) => {
     }
   });
 });
+
+//AJAX old:
+//Etape 1 : créet l'objet request
+let request = new XMLHttpRequest();
+
+//Initialilser: On decide de la methode et de l'url
+request.open("GET", "http://localhost:5500/data.json");
+
+//Ajoute un callback qui s'execute a chaque changement d'état
+request.onreadystatechange = function () {
+  console.log("state", this.readyState);
+
+  console.log("status", this.status);
+
+  //Si la réponse est terminée et que la reponse est correcte.
+  if (this.readyState === 4 && this.status === 200) {
+    const { user } = JSON.parse(this.responseText);
+
+    const root = document.querySelector("#root");
+
+    root.querySelector("h2").innerHTML = user.username;
+
+    user.couts.forEach((cours) => {
+      const coursElement = document.createElement("p");
+      coursElement.innerHTML = cours;
+      root.appendChild(coursElement);
+    });
+  }
+};
+
+//Envoyer la requete
+request.send();

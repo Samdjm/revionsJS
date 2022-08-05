@@ -1,0 +1,7 @@
+{
+  "user": {
+    "username": "John",
+    "email": "sam@sam.com",
+    "couts": ["PHP", "React"]
+  }
+}
