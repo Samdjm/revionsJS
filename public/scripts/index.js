@@ -55,6 +55,11 @@ request.onreadystatechange = function () {
     });
   }
 };
-
 //Envoyer la requete
 request.send();
+
+//Exercice 1:
+
+//Utiliser AJAX pour faire une requete vers posts.json
+
+//Afficher les posts sous forme d'accordion (append to main)
