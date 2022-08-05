@@ -34,6 +34,31 @@ a {
   margin: 0 10px;
 }
 
+.accordionButton {
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  transition: 0.5s ease-in-out;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+.active,
+.accordionButton:hover {
+  background-color: rgb(183, 183, 183);
+}
+.panel {
+  padding: 0 20px;
+  overflow: hidden;
+
+  max-height: 0px;
+  border-bottom: 1px solid black;
+  transition: all 1s ease-in-out;
+}
+
 @media (max-width: 720px) {
   #menu {
     flex-direction: column;
