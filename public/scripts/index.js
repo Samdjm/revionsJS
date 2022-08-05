@@ -62,4 +62,33 @@ request.send();
 
 //Utiliser AJAX pour faire une requete vers posts.json
 
-//Afficher les posts sous forme d'accordion (append to main)
+let req = new XMLHttpRequest();
+
+req.open("GET", "http://localhost:5500/posts.json");
+
+req.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    const { posts } = JSON.parse(this.responseText);
+    console.log(posts);
+    //Afficher les posts sous forme d'accordion (append to main)
+    const main = document.querySelector("main");
+
+    const postsElements = posts.map((post, index) => {
+      const div = document.createElement("div");
+      div.classList.add("accordion");
+      div.innerHTML = `
+        <button class="accordionButton">${post.title}</button>
+        <div class"panel">
+          <p>
+            ${post.content}
+          </p>
+        </div>
+      `;
+      return div;
+    });
+
+    main.append(...postsElements);
+  }
+};
+
+req.send();
